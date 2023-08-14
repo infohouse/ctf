@@ -1,0 +1,12 @@
+lxc image import alpine-v3.13-x86_64-20210218_0139.tar.gz
+lxc image list
++-------+--------------+--------+-------------------------------+--------+--------+-------------------------------+
+| ALIAS | FINGERPRINT  | PUBLIC |          DESCRIPTION          |  ARCH  |  SIZE  |          UPLOAD DATE          |
++-------+--------------+--------+-------------------------------+--------+--------+-------------------------------+
+|       | cd73881adaac | no     | alpine v3.13 (20210218_01:39) | x86_64 | 3.11MB | Aug 14, 2023 at 12:24pm (UTC) |
++-------+--------------+--------+-------------------------------+--------+--------+-------------------------------+
+
+lxc init cd73 ignite -c security.privileged=true
+lxc config device add ignite cd73 disk source=/ path=/mnt/root recursive=true #mount path / to mnt/root
+lxc start ignite
+lxc exec ignite /bin/sh
